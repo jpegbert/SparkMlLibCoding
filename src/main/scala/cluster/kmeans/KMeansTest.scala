@@ -15,7 +15,7 @@ object KMeansTest {
 
     // Load and parse the data
     val data = sc.textFile("data/mllib/kmeans_data.txt")
-    val parsedData = data.map(s => Vectors.dense(s.split(' ').map(_.toDouble))).cache()
+    val parsedData = data.map(s => Vectors.dense(s.split(',').map(_.toDouble))).cache()
 
     // split data to train data and test data
     val weights = Array(0.8, 0.2)

@@ -11,11 +11,11 @@ object KMeansDemo {
 
   def main(args: Array[String]): Unit = {
 
-    val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("svm")
+    val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("KMeansDemo")
     val sc = new SparkContext(conf)
 
-    //从windows本地读取数据，转化为RDD[Vector]
-    val source: BufferedSource = Source.fromFile("kmeans_data.txt")
+    // 从windows本地读取数据，转化为RDD[Vector]
+    val source: BufferedSource = Source.fromFile("data/kmeans_data.txt")
     val lines: Array[String] = source.getLines().toArray
     val vectors: Array[linalg.Vector] = lines.map { line =>
       val splits: Array[Double] = line.split(" ").map(_.toDouble)
